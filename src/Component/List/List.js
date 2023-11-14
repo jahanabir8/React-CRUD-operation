@@ -4,9 +4,11 @@ import EditList from "../EditList/EditList";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Search from "../Search/Search";
 
 const List = ({ lists, setLists }) => {
   const [updateState, setUpdateState] = useState(-1);
+  const [search, setSearch] = useState('')
   const handleEdit = (id) => {
     setUpdateState(id);
   };
@@ -31,8 +33,13 @@ const List = ({ lists, setLists }) => {
     toast.success('Information Removed Successfully!')
   }
 
+  const handleSearch = (e) =>{
+    setSearch(e.target.value)
+  }
+
   return (
     <form onSubmit={handleUpdate}>
+        <Search search={search} handleSearch={handleSearch}/>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -43,7 +50,13 @@ const List = ({ lists, setLists }) => {
           </tr>
         </thead>
         <tbody>
-          {lists.map((list, index) => {
+          {lists.filter((item) => {
+            return search.toLowerCase() === ''
+              ? item
+              : item.id.toLowerCase().includes(search);
+          })
+
+          .map((list, index) => {
             return updateState === list.id ? (
               <EditList list={list} />
             ) : (
