@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddList = ({ lists, setLists }) => {
   const [id, setId] = useState("");
@@ -19,20 +19,20 @@ const AddList = ({ lists, setLists }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newList = {id, name, department};
-    setLists([...lists, newList])
-    setId('')
-    setName('')
-    setDepartment('')
+    const newList = { id, name, department };
+    setLists([...lists, newList]);
+    setId("");
+    setName("");
+    setDepartment("");
 
-    toast.success('added')
+    toast.success("added");
   };
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-floating mb-3">
         <input
           type="text"
-          className   ="form-control"
+          className="form-control"
           onChange={handleId}
           id="EMPid"
           value={id}
@@ -41,7 +41,7 @@ const AddList = ({ lists, setLists }) => {
         />
         <label htmlFor="EMPid">Your ID</label>
       </div>
-      <div className="htmlForm-floating mb-3">
+      <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
