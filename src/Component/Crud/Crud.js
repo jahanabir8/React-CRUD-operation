@@ -21,13 +21,17 @@ const Crud = () => {
     <div className="CRUD">
       <div className="container">
         <div className="CRUD__inner">
-            <h1 className="text-center mb-5">Employee Details</h1>
+          <h1 className="text-center mb-5">Employee Details</h1>
           <div className="row">
             <div className="col-md-6">
               <AddList lists={lists} setLists={setLists} />
             </div>
             <div className="col-md-6">
-              <List lists={lists} setLists={setLists} />
+              {lists.length < 1 ? (
+                <p>No Item Added Yet!</p>
+              ) : (
+                <List lists={lists} setLists={setLists} />
+              )}
             </div>
           </div>
         </div>

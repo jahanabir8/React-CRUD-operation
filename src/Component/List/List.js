@@ -37,6 +37,10 @@ const List = ({ lists, setLists }) => {
     setSearch(e.target.value)
   }
 
+  const handleAll = () =>{
+    setLists([])
+  }
+
   return (
     <form onSubmit={handleUpdate}>
         <Search search={search} handleSearch={handleSearch}/>
@@ -80,6 +84,7 @@ const List = ({ lists, setLists }) => {
           })}
         </tbody>
       </table>
+      <button className="btn btn-danger w-100" type="button" onClick={handleAll}>Remove All</button>
     </form>
   );
 };
