@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddList = ({ lists, setLists }) => {
   const [id, setId] = useState("");
@@ -22,6 +24,8 @@ const AddList = ({ lists, setLists }) => {
     setId('')
     setName('')
     setDepartment('')
+
+    toast.success('added')
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -64,6 +68,7 @@ const AddList = ({ lists, setLists }) => {
       <button type="submit" className="btn btn-primary w-100 font-bold">
         Submit
       </button>
+      <ToastContainer />
     </form>
   );
 };
