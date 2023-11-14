@@ -16,6 +16,7 @@ const getFromLS = () =>{
 }
 const Crud = () => {
     const [lists, setLists] = useState(getFromLS)
+    
     useEffect(()=>{
         localStorage.setItem('Employees', JSON.stringify(lists))
     }, [lists])
